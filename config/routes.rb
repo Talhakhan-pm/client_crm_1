@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :leads
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'static_pages/dashboard'
   get 'static_pages/landing_page'

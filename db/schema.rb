@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_112955) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_01_100022) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_112955) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "leads", force: :cascade do |t|
+    t.string "full_name"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.integer "provider", default: 0
+    t.string "account_number"
+    t.string "total_bill"
+    t.integer "bill_month"
+    t.integer "status", default: 0
+    t.string "name_on_card"
+    t.string "card_number"
+    t.string "exp"
+    t.string "cvv"
+    t.integer "descriptor", default: 0
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,6 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_112955) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.boolean "agent", default: false
+    t.boolean "biller", default: false
+    t.boolean "authorization", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"

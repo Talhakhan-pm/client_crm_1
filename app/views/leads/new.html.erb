@@ -1,0 +1,40 @@
+
+
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Users</h1>
+  </div>
+  <div class="min-w-full my-8">
+    <div class="table font-bold min-w-full">
+      <div>Name</div>
+      <div>Email</div>
+      <div>Age</div>
+      <div>Phone</div>
+      <div></div>
+    </div>
+    
+    <div id="users">
+       <%= form_with model: @lead, class: "table min-w-full" do |form| %>
+  <div>
+    <%= form.text_field :full_name, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    
+  </div>
+  <div>
+    <%= form.text_field :street, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    
+  </div>
+  <div>
+    <%= form.number_field :charged_amount, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full datefield" %>
+    
+  </div>
+  <div>
+    <%= form.text_field :account_number, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    
+  </div>
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
+    </div>
+  </div>
+</div>
