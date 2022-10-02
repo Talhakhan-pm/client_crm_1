@@ -11,7 +11,7 @@
   </head>
 
   <body class>
-    <%= render 'layouts/nav' %>
+    <%= render 'layouts/nav' if current_user %>
     
     <% if notice %>
     <p class="notice text-base w-1/4 font-sans font-semibold bg-green-400 rounded-lg text-white pl-12 py-2 mx-auto mt-4"><%= notice %></p>
