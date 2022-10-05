@@ -27,14 +27,14 @@
           <div class="sm:col-span-3">
             <label for="country" class="block text-sm font-medium text-gray-700">Provider</label>
             <div class="mt-1">
-            <%= f.select :descriptor, Lead.providers.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-2" %>
+            <%= f.select :descriptor, Lead.providers.keys, {}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-2" %>
             </div>
           </div>
 
           <div class="sm:col-span-6">
-            <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+            <label for="address" class="block text-sm font-medium text-gray-700">Street address</label>
             <div class="mt-1">
-              <%= f.text_field :street, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
+              <%= f.text_field :street, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Enter Full Service-Address"  %>
             </div>
           </div>
 
@@ -56,7 +56,7 @@
           <div class="sm:col-span-2">
             <label for="country" class="block text-sm font-medium text-gray-700">Billing Month</label>
             <div class="mt-1">
-              <%= f.select :descriptor, Lead.bill_months.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
+              <%= f.select :bill_month, Lead.bill_months.keys, {include_blank: false}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
             </div>
           </div>
 
@@ -97,7 +97,7 @@
           <div class="sm:col-span-3">
             <label for="country" class="block text-sm font-medium text-gray-700">Descriptor</label>
             <div class="mt-1">
-              <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
+              <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4"%>
             </div>
           </div>
 
