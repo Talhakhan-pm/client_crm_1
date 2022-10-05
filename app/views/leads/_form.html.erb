@@ -1,6 +1,6 @@
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
 <%= render 'layouts/errors' %>
-<%= form_with(model: @lead, html: {:onsubmit => "return confirm('Are you sure?');" }) do |f| %>
+<%= form_with(model: @lead, html: {:onsubmit => "return confirm('Are you sure?');", data: { turbo: false} }) do |f| %>
   <form class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-8 divide-y divide-gray-200">
       <div>
@@ -53,13 +53,22 @@
             </div>
           </div>
         
+        
+          
           <div class= "sm:col-span-3">
             <legend class="block text-sm font-medium text-gray-700">Card Details</legend>
             <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
+             
+             <% if action_name == "edit" %>
               <div>
                 <label for="card-number" class="sr-only">Card number</label>
-                <%= f.password_field :card_number, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-b-2", placeholder: "Card Number" %>
+                <%= f.password_field :card_number, value: @lead.card_number, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-b-2", placeholder: "Card Number" %>
               </div>
+              
+             <% end %>
+             
+          
+
               <div class="flex -space-x-px">
                 <div class="w-1/2 min-w-0 flex-1">
                   <label for="card-expiration-date" class="sr-only">Expiration date</label>
@@ -72,7 +81,6 @@
               </div>
               </div>
             </div>
-        
           
           <div class="sm:col-span-3">
             <label for="email" class="block text-sm font-medium text-gray-700">Name On the Card</label>
@@ -101,9 +109,8 @@
     <div class="pt-5">
       <div class="flex justify-center">
       
-      <% if action_name == "edit" %>
+      
         <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
-      <% end %>
       
       
 <% end %>

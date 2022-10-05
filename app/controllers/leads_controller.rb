@@ -29,7 +29,7 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.find(params[:id])
-    if @lead.update(update_params)
+    if @lead.update(lead_params)
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
     else
