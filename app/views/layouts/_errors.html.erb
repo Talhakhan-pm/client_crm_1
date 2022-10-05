@@ -1,5 +1,5 @@
 <% if @lead.errors.any? %>
-<ul class= "bg-red-400 w-1/2 rounded-full text-center mx-auto">
+<ul class= "bg-red-400 w-1/2 rounded-lg text-center mx-auto mb-4">
   <% @lead.errors.full_messages.each do |msg|  %>
   <li class= "text-center text-white"><%= msg %></li>
   <% end %>

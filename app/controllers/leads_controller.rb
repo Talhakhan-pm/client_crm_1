@@ -18,7 +18,7 @@ class LeadsController < ApplicationController
       flash[:notice]= "Your sales is processed for authorization"
       redirect_to leads_path
     else
-      flash.now[:alert]= "Please contact your administrator"
+      # flash.now[:alert]= "Please contact your administrator"
       render :new, status: :unprocessable_entity
     end
   end
