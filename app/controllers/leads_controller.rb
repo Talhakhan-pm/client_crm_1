@@ -28,6 +28,15 @@ class LeadsController < ApplicationController
   end
 
   def update
+    @lead = Lead.find(params[:id])
+    if @lead.update(update_params)
+      flash[:notice]= "Lead has been updated"
+      redirect_to leads_path
+    else
+      flash[:alert]= "Please contact your Manager"
+      render :edit, status: :unprocessable_entity
+    end
+
   end
 
   private
@@ -35,4 +44,17 @@ class LeadsController < ApplicationController
   def lead_params
     params.require(:lead).permit!
   end
+
+  def update_params
+    params.require(:lead).permit(
+      :full_name,
+      :street,
+      :provider,
+      :account_number,
+      :total_bill,
+      :bill_month,
+      :descriptor
+    )
+  end
+
 end

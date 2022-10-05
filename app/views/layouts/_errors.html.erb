@@ -1,0 +1,7 @@
+<% if @lead.errors.any? %>
+<ul>
+  <% @lead.errors.full_messages.each do |msg|  %>
+  <li class= "text-2xl"><%= msg %></li>
+  <% end %>
+</ul>
+  <% end %>
