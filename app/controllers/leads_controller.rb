@@ -1,6 +1,7 @@
 class LeadsController < ApplicationController
 
   def index
+    @leads = Lead.where("email LIKE ?", "%#{params[:filter]}%").all
   end
 
   def show
@@ -23,6 +24,7 @@ class LeadsController < ApplicationController
   end
 
   def edit
+    @lead = Lead.find(params[:id])
   end
 
   def update

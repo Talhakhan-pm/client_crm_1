@@ -27,11 +27,7 @@
           <div class="sm:col-span-3">
             <label for="country" class="block text-sm font-medium text-gray-700">Provider</label>
             <div class="mt-1">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4">
-                <option>Directv</option>
-                <option>Xfinity</option>
-                <option>Spectrum</option>
-              </select>
+            <%= f.select :descriptor, Lead.providers.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-2" %>
             </div>
           </div>
 
@@ -52,7 +48,7 @@
           <div class="sm:col-span-2">
             <label for="region" class="block text-sm font-medium text-gray-700">Bill Amount</label>
             <div class="mt-1">
-              <%= f.text_field :total_bill, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Total bill"  %>
+              <%= f.text_field :total_bill, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "$ Total bill"  %>
             </div>
           </div>
 
@@ -60,11 +56,7 @@
           <div class="sm:col-span-2">
             <label for="country" class="block text-sm font-medium text-gray-700">Billing Month</label>
             <div class="mt-1">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4">
-                <option>Past Due</option>
-                <option>Present</option>
-                <option>Total bill</option>
-              </select>
+              <%= f.select :descriptor, Lead.bill_months.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
             </div>
           </div>
 
@@ -105,10 +97,7 @@
           <div class="sm:col-span-3">
             <label for="country" class="block text-sm font-medium text-gray-700">Descriptor</label>
             <div class="mt-1">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4">
-                <option>Discounted Bills</option>
-                <option>Bill Square</option>
-              </select>
+              <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %>
             </div>
           </div>
 

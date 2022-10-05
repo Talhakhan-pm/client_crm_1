@@ -25,4 +25,9 @@
 #
 class Lead < ApplicationRecord
   belongs_to :user
+
+  enum descriptor: [ 'Discounted Bills' , 'Bill Square']
+  enum bill_month: [ 'Past Due', 'Current Bill' , 'Complete Bill']
+  enum provider: ['Spectrum', 'Xfinity' , 'Directv', 'Cox', 'Verizon']
+  enum status: ['Pending', 'Charged', 'Refund', 'Chargeback']
 end
