@@ -31,7 +31,7 @@ class Lead < ApplicationRecord
   enum provider: ['Spectrum', 'Xfinity' , 'Directv', 'Cox', 'Verizon']
   enum status: {pending: 0, charged: 1, refund: 2, chargeback: 3}
 
-    validates :full_name, presence: true
-    validates :card_number, presence: true
+  validates :full_name, presence: true
+  validates :card_number, presence: true
     
 end

@@ -1,6 +1,6 @@
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
 <%= render 'layouts/errors' %>
-<%= form_with(model: @lead, html: {:onsubmit => "return confirm('Are you sure?');", data: { turbo: false} }) do |f| %>
+<%= form_with(model: @lead) do |f| %>
   <form class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-8 divide-y divide-gray-200">
       <div>
