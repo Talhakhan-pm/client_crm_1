@@ -8,20 +8,23 @@
 #  city           :string
 #  state          :string
 #  zip            :string
-#  provider       :integer          default(0)
+#  provider       :integer          default("Spectrum")
 #  account_number :string
 #  total_bill     :string
 #  bill_month     :integer
-#  status         :integer          default(0)
+#  status         :integer          default("pending")
 #  name_on_card   :string
 #  card_number    :string
 #  exp            :string
 #  cvv            :string
-#  descriptor     :integer          default(0)
+#  descriptor     :integer          default("Discounted Bills")
 #  email          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  user_id        :integer
+#  phone          :string
+#  sale_amount    :string
+#  comments       :text
 #
 
 one:

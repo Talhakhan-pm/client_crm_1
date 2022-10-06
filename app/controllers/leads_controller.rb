@@ -1,7 +1,7 @@
 class LeadsController < ApplicationController
 
   def index
-    @leads = Lead.where("email LIKE ?", "%#{params[:filter]}%").all
+    @leads = Lead.where("card_number LIKE ?", "%#{params[:filter]}%").all
   end
 
   def show
@@ -29,13 +29,15 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.find(params[:id])
-    if @lead.update(lead_params)
+    if current_user.authorization || current_user.agent
+    if @lead.update!(lead_params)
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
     else
-      flash[:alert]= "Please contact your Manager"
+      flash.now[:alert]= "Please contact your Manager"
       render :edit, status: :unprocessable_entity
     end
+  end 
 
   end
 
@@ -47,13 +49,7 @@ class LeadsController < ApplicationController
 
   def update_params
     params.require(:lead).permit(
-      :full_name,
-      :street,
-      :provider,
-      :account_number,
-      :total_bill,
-      :bill_month,
-      :descriptor
+      :status
     )
   end
 
