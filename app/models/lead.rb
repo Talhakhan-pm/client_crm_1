@@ -31,7 +31,7 @@ class Lead < ApplicationRecord
 
   enum descriptor: [ 'Discounted Bills' , 'Bill Square']
   enum bill_month: [ 'Past Due', 'Current Bill' , 'Complete Bill']
-  enum provider: ['Spectrum', 'Xfinity' , 'Directv', 'Cox', 'Verizon']
+  enum provider: ['Spectrum', 'Xfinity' , 'Directv', 'Cox', 'Verizon', 'AT&T', 'Other']
   enum status: ['pending','charged', 'refund', 'chargeback']
 
   validates :full_name, presence: true

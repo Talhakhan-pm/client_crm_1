@@ -38,7 +38,7 @@
         <div class="sm:col-span-2">
           <label for="provider" class="block text-sm font-medium text-gray-700">Provider</label>
           <div class="mt-1">
-          <%= f.select :provider, Lead.providers.keys, {}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+          <%= f.select :provider, Lead.providers.keys, {}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm appearance-none" %>
           </div>
         </div>
 
@@ -67,7 +67,7 @@
         <div class="sm:col-span-2">
           <label for="date" class="block text-sm font-medium text-gray-700">Billing Month</label>
           <div class="mt-1">
-            <%= f.select :bill_month, Lead.bill_months.keys, {include_blank: false}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+            <%= f.select :bill_month, Lead.bill_months.keys, {include_blank: false}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm appearance-none" %>
           </div>
         </div>
       
@@ -123,7 +123,7 @@
           <div class="sm:col-span-3">
             <label for="descriptor" class="block text-sm font-medium text-gray-700">Descriptor</label>
             <div class="mt-1">
-              <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"%>
+              <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm appearance-none"%>
             </div>
           </div>
 
@@ -138,7 +138,7 @@
                 <div class="sm:col-span-3">
                   <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                   <div class="mt-1">
-                    <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4"%>
+                    <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
                   </div>
                 </div>
             <% end %>
