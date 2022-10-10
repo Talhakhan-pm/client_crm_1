@@ -1,7 +1,8 @@
 class LeadsController < ApplicationController
 
   def index
-    @leads = Lead.where("card_number LIKE ?", "%#{params[:filter]}%").all
+    @leads = policy_scope(Lead).where("card_number LIKE ?", "%#{params[:filter]}%").all
+    authorize @leads
   end
 
   def show
@@ -9,12 +10,14 @@ class LeadsController < ApplicationController
 
   def new
     @lead = Lead.new  
+    authorize @lead
   end
 
   def create
     @lead = Lead.new(lead_params)
     @lead.user = current_user
-    if current_user.agent? && @lead.save
+    if current_user.agent? || current_user.admin 
+      @lead.save
       flash[:notice]= "Your sales is processed for authorization"
       redirect_to leads_path
     else
@@ -25,6 +28,7 @@ class LeadsController < ApplicationController
 
   def edit
     @lead = Lead.find(params[:id])
+    authorize @lead
   end
 
   def update

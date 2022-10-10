@@ -78,3 +78,4 @@ gem 'omniauth-rails_csrf_protection'
 gem "annotate"
 gem "hirb"  
 gem "pg"
+gem "pundit", "~> 2.2"

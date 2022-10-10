@@ -2,4 +2,6 @@
     <%= render 'authorization' %>
   <% elsif current_user.agent %>
     <%= render 'leads/agent' %>
+    <% elsif current_user.admin %>
+    <%= render 'admin' %>
 <% end %>
