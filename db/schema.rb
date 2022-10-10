@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_10_052457) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_141739) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_052457) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "phone"
-    t.string "sale_amount"
+    t.integer "sale_amount"
     t.text "comments"
     t.string "ssn"
     t.string "pin_code"
