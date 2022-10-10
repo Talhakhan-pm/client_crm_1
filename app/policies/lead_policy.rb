@@ -3,7 +3,7 @@ class LeadPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.agent?
-        scope.where(user_id: @user.try(:id))
+        scope.where(user_id: @user.try(:id)).order(created_at: :desc)
       else
         scope.all
       end
