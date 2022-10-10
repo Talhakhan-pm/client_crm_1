@@ -2,29 +2,33 @@
 #
 # Table name: leads
 #
-#  id             :integer          not null, primary key
-#  full_name      :string
-#  street         :string
-#  city           :string
-#  state          :string
-#  zip            :string
-#  provider       :integer          default("Spectrum")
-#  account_number :string
-#  total_bill     :string
-#  bill_month     :integer
-#  status         :integer          default("pending")
-#  name_on_card   :string
-#  card_number    :string
-#  exp            :string
-#  cvv            :string
-#  descriptor     :integer          default("Discounted Bills")
-#  email          :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  user_id        :integer
-#  phone          :string
-#  sale_amount    :string
-#  comments       :text
+#  id              :integer          not null, primary key
+#  full_name       :string
+#  street          :string
+#  city            :string
+#  state           :string
+#  zip             :string
+#  provider        :integer          default("Spectrum")
+#  account_number  :string
+#  total_bill      :string
+#  bill_month      :integer
+#  status          :integer          default("pending")
+#  name_on_card    :string
+#  card_number     :string
+#  exp             :string
+#  cvv             :string
+#  descriptor      :integer          default("Discounted Bills")
+#  email           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
+#  phone           :string
+#  sale_amount     :string
+#  comments        :text
+#  ssn             :string
+#  pin_code        :string
+#  bill_status     :integer          default(0)
+#  bill_check_date :date
 #
 
 one:

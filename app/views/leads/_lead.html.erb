@@ -40,12 +40,10 @@
       <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.id}", edit_lead_path(lead),data: { turbo: "false" }, class: "text-gray-600 hover:text-indigo-900" %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.full_name %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all sm:pl-6 lg:pl-8"><%= lead.street %></td>
-      <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.provider %></td>
-      <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.total_bill %></td>
-      <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.bill_month %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.card_number %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.exp %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.cvv %></td>
+      <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.sale_amount %></td>
       <td class="relative whitespace-nowrap border-b border-gray-200 text-center ">
        <div class="flex item-center justify-center">
       <% if lead.status == 'pending' %>
@@ -100,6 +98,27 @@
       <% elsif lead.status == 'chargeback' %>
       <p class= "inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800 mr-2">
        <%= lead.status %>
+      </p>
+      <% end %>
+      </div>
+    </td>
+    <td class="relative whitespace-nowrap border-b border-gray-200 text-center ">
+       <div class="flex item-center justify-center">
+      <% if lead.bill_status == 'Pending' %>
+      <p class= "inline-flex rounded-full bg-yellow-100 px-2 text-xs font-semibold leading-5 text-yellow-800 mr-2">
+       <%= lead.bill_status %>
+      </p>
+      <% elsif lead.bill_status == 'paid' %>
+      <p class= "inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800 mr-2">
+       <%= lead.bill_status %>
+      </p>
+      <% elsif lead.bill_status == 'account-error' %>
+      <p class= "inline-flex rounded-full bg-blue-100 px-2 text-xs font-semibold leading-5 text-blue-800 mr-2">
+       <%= lead.bill_status %>
+      </p>
+      <% elsif lead.bill_status == 'reversed' %>
+      <p class= "inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800 mr-2">
+       <%= lead.bill_status %>
       </p>
       <% end %>
       </div>

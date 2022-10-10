@@ -33,7 +33,7 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.find(params[:id])
-    if current_user.authorization || current_user.agent
+    authorize @lead
     if @lead.update!(lead_params)
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
@@ -41,8 +41,6 @@ class LeadsController < ApplicationController
       flash.now[:alert]= "Please contact your Manager"
       render :edit, status: :unprocessable_entity
     end
-  end 
-
   end
 
   private

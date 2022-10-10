@@ -22,14 +22,9 @@ class LeadPolicy < ApplicationPolicy
     !user.authorization
   end
 
-  def permitted_attributes_for_edit
-    if user.admin?
-      [:status]
-    end
-  end
+  def update?
+    !user.biller
+  end 
 
-
-
-  
 
 end
