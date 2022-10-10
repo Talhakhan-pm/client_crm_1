@@ -1,18 +1,15 @@
 
 
 <%# Form form admins %>
+  <% if current_user.admin %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with(model: @lead) do |f| %>
-  <% if current_user.admin %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
-      <>
-
         <div>
           <h3 class="text-lg font-medium leading-6 text-gray-900">Lead</h3>
           <p class="mt-1 text-sm text-gray-500">This information will only be saved once</p>
         </div>
-
         <div class="pt-4  ">
         <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
           <div class="sm:col-span-3">
@@ -142,6 +139,12 @@
                     <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
                   </div>
                 </div>
+                <div class="sm:col-span-3">
+                  <label for="status" class="block text-sm font-medium text-gray-700">Bill Status</label>
+                  <div class="mt-1">
+                    <%= f.select :bill_status, Lead.bill_statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
+                  </div>
+                </div>
 
       </div>
     </div>
@@ -151,28 +154,24 @@
       <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
       <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
         <% end %>
+            <% end %>
       </div>
     </div>
     </div>
     </div>
   </form>
-            <% end %>
-    
 
-<div class="lg:w-1/2 mx-auto bg-gray-200 p-8 rounded-xl sm:w-4/5 -mt-10 ">
+<% if current_user.agent %>
+<div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with(model: @lead) do |f| %>
-  <% if current_user.agent %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
-      <div>
-
         <div>
           <h3 class="text-lg font-medium leading-6 text-gray-900">Lead</h3>
           <p class="mt-1 text-sm text-gray-500">This information will only be saved once</p>
         </div>
-
         <div class="pt-4  ">
-        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="mt-2 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <label for="first-name" class="block text-sm font-medium text-gray-700">Full name</label>
             <div class="mt-1">
@@ -293,15 +292,9 @@
               <%= f.text_area :comments, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4"%>
             </div>
           </div>
-          <% elsif current_user.authorization %>
-                <div class="sm:col-span-3">
-                  <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                  <div class="mt-1">
-                    <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
-                  </div>
-                </div>
 
-        <% end %>
+
+
       </div>
     </div>
 
@@ -309,9 +302,43 @@
       <div class="flex justify-center">
       <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
       <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+        <% end %>
+        <% end %>
       </div>
     </div>
+    </div>
+    </div>
   </form>
+
+    <% if current_user.authorization %>
+<div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
+ <%= form_with(model: @lead) do |f| %>
+    <form class="space-y-8 divide-y divide-gray-200">
+      <div class="space-y-8 divide-y divide-gray-200">
+        <div>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Lead</h3>
+          <p class="mt-1 text-sm text-gray-500">Please update the status of the sale</p>
+        </div>
+        <div class="">
+          <div class="mt-2 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <div class="sm:col-span-6">
+            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+            <div class="mt-1">
+              <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div class="flex justify-center">
+      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
+      <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+        <% end %>
             <% end %>
-</div>
-</div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </form>
