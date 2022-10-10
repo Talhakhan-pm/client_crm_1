@@ -5,7 +5,7 @@ class LeadPolicy < ApplicationPolicy
       if user.agent?
         scope.where(user_id: @user.try(:id)).order(created_at: :desc)
       else
-        scope.all
+        scope.order(created_at: :desc)
       end
     end
   end
