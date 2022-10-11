@@ -215,12 +215,14 @@
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <span class="text-gray-500 sm:text-sm">$</span>
             </div>
-            <input type="text" name="price" id="price" class="block w-full py-3 rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Monthly Bill Amount" aria-describedby="price-currency">
+            <%= f.text_field :total_bill, class: "block w-full py-3 rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "Bill Amount"  %>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
               <span class="text-gray-500 sm:text-sm" id="price-currency">USD</span>
             </div>
           </div>
         </div>
+
+        
 
 
         <div class="sm:col-span-2">
@@ -272,14 +274,21 @@
         </div>
             
 
-          <div class="sm:col-span-3">
+          <div class="sm:col-span-2">
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
             <div class="mt-1">
                <%= f.text_field :email, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Email" %>
             </div>
           </div>
 
-          <div class="sm:col-span-3">
+          <div class="sm:col-span-2">
+            <label for="email" class="block text-sm font-medium text-gray-700">Pin Code</label>
+            <div class="mt-1">
+               <%= f.number_field :pin_code, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "4 Digit Pin Code" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
             <label for="descriptor" class="block text-sm font-medium text-gray-700">Descriptor</label>
             <div class="mt-1">
               <%= f.select :descriptor, Lead.descriptors.keys, {include_blank: true}, class: "mt-1 block w-full rounded-md border-gray-300 py-3 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm appearance-none"%>
@@ -289,7 +298,7 @@
           <div class="sm:col-span-6">
             <label for="comments" class="block text-sm font-medium text-gray-700">Comments</label>
             <div class="mt-1">
-              <%= f.text_area :comments, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4"%>
+              <%= f.text_area :comments, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Important Information on the lead"%>
             </div>
           </div>
 
@@ -325,6 +334,51 @@
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
             <div class="mt-1">
               <%= f.select :status, Lead.statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div class="flex justify-center">
+      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
+      <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+        <% end %>
+            <% end %>
+      </div>
+    </div>
+    </div>
+    </div>
+  </form>
+
+      <% if current_user.biller %>
+<div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
+ <%= form_with(model: @lead) do |f| %>
+    <form class="space-y-8 divide-y divide-gray-200">
+      <div class="space-y-8 divide-y divide-gray-200">
+        <div>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Lead</h3>
+          <p class="mt-1 text-sm text-gray-500">Please update the status of the sale</p>
+        </div>
+        <div class="">
+          <div class="mt-2 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <label for="status" class="block text-sm font-medium text-gray-700">Bill Checking Date</label>
+            <div class="mt-1">
+              <%= f.datetime_local_field :bill_check_date, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="status" class="block text-sm font-medium text-gray-700">Account Status</label>
+            <div class="mt-1">
+              <%= f.select :bill_status, Lead.bill_statuses.keys,{}, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
+            </div>
+          </div>
+            <div class="sm:col-span-6">
+            <label for="billing_status" class="block text-sm font-medium text-gray-700">Biller Comments</label>
+            <div class="mt-1">
+              <%= f.text_area :biller_comment, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 appearance-none"%>
             </div>
           </div>
         </div>

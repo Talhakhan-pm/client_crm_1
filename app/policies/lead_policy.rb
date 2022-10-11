@@ -15,15 +15,15 @@ class LeadPolicy < ApplicationPolicy
   end
 
   def edit?
-    !user.biller
+    true
   end
 
   def new?
-    !user.authorization
+    !user.authorization && !user.biller
   end
 
   def update?
-    !user.biller
+    true
   end 
 
 
