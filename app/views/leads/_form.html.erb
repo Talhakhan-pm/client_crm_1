@@ -1,9 +1,10 @@
 
 
+
 <%# Form form admins %>
   <% if current_user.admin %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
- <%= form_with(model: @lead) do |f| %>
+ <%= form_with(model: @lead, local: true) do |f| %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -163,7 +164,8 @@
 
 <% if current_user.agent %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
- <%= form_with(model: @lead) do |f| %>
+ <%= form_with model: @lead,  method: :post, class: "form-horizontal" do |f| %>
+  <%= render 'layouts/errors' %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -322,6 +324,7 @@
     <% if current_user.authorization %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with(model: @lead) do |f| %>
+  <%= render 'layouts/errors' %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>

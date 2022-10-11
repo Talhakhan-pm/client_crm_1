@@ -22,6 +22,10 @@ class LeadPolicy < ApplicationPolicy
     !user.authorization && !user.biller
   end
 
+  def create?
+    user.agent
+  end
+
   def update?
     true
   end 

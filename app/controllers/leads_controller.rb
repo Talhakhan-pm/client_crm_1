@@ -16,12 +16,12 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
     @lead.user = current_user
-    if current_user.agent? || current_user.admin 
-      @lead.save
+    authorize @lead
+    if @lead.save
       flash[:notice]= "Your sales is processed for authorization"
       redirect_to leads_path
     else
-      # flash.now[:alert]= "Please contact your administrator"
+      flash.now[:alert]= "Please contact your administrator"
       render :new, status: :unprocessable_entity
     end
   end
