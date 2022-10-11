@@ -31,6 +31,7 @@
 #  bill_check_date :date
 #
 class Lead < ApplicationRecord
+
   belongs_to :user
 
   enum descriptor: [ 'Discounted Bills' , 'Bill Square']

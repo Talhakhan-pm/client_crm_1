@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_033232) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_11_040644) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_033232) do
     t.string "ssn"
     t.string "pin_code"
     t.integer "bill_status", default: 0
-    t.date "bill_check_date"
+    t.datetime "bill_check_date", precision: nil
     t.string "biller_comment"
   end
 
