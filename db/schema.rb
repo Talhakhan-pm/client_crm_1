@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_235441) do
     t.string "ssn"
     t.string "pin_code"
     t.integer "bill_status", default: 0
-    t.datetime "bill_check_date", precision: nil
+    t.string "bill_check_date"
     t.string "biller_comment"
     t.string "input"
   end
