@@ -164,7 +164,7 @@
 
 <% if current_user.agent %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
- <%= form_with model: @lead,  method: :post, class: "form-horizontal" do |f| %>
+ <%= form_with model: @lead do |f| %>
   <%= render 'layouts/errors' %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
@@ -188,11 +188,11 @@
           </div>
         </div>
 
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4" data-controller= "address" data-action="map-loaded@window->address#initGoogle">
           <label for="address" class="block text-sm font-medium text-gray-700">Street address</label>
           <div class="mt-1">
-            <%= f.text_field :street, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Enter Full Service-Address"  %>
-          </div>
+             <%= f.text_field :input, data: {address_target: "input"}, id: "address", autocomplete: "off", class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %> 
+             </div>
         </div>
 
 
