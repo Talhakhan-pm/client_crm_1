@@ -154,12 +154,19 @@
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.pin_code %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= "$#{lead.total_bill}" if lead.total_bill %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.biller_comment %></td>
-        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= distance_of_time_in_words_to_now(lead.updated_at) if lead.bill_check_date %></td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= distance_of_time_in_words_to_now(lead.bill_check_date) if lead.bill_check_date %></td>
                                                                                                             <% if lead.bill_check_date.present? %>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= current_user.email %></td>
                                                                                                                 <% else %>
        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%=  %></td>                                                                                                         
                                                                                                               <% end %>
+                                                                                                            <% if lead.bill_status? && lead.bill_check_date?  %>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= distance_of_time_in_words_to_now(lead.updated_at) %></td>
+                                                                                                                <% else %>
+       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%=  %></td>                                                                                                         
+                                                                                                              <% end %>
+                                                                                                              
+
         <td class="relative whitespace-nowrap border-b border-gray-200 text-center ">
         <div class="flex item-center justify-center">
         <% if lead.bill_status == 'Pending' %>
