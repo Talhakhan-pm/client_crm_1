@@ -18,6 +18,7 @@ class LeadsController < ApplicationController
     @lead.user = current_user
     authorize @lead
     if @lead.save
+      LeadsMailer.with(user: current_user, lead: @lead).lead_created.deliver_later
       flash[:notice]= "Your sales is processed for authorization"
       redirect_to leads_path
     else
