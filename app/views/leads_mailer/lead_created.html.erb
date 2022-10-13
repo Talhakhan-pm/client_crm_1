@@ -3,10 +3,15 @@
 <p>Hello, <%= @lead.full_name %></p>
 
 <p class= "text-lg text-center font-semibold italic">
-  <%= @greeting %>, You paid a bill for <%= @lead.provider %>, your total bill was $<%= @lead.total_bill %>, and your card that ends with <%= @lead.card_number.last(4) %>
-  will be charged for $<%= @lead.sale_amount %>
+  <%= @greeting %>, Thank you for calling us for your <%= @lead.provider %> Bills, your total bill for this month is $<%= @lead.total_bill %>,
+  and we're excited to inform you that a discount of $<%= @lead.total_bill - @lead.sale_amount %> has been applied on your bill!
 </p>
 
 <p class = "font-semibold text-left">
-  The charge would show up with the name of "<%= @lead.descriptor.capitalize %>"
+  The transaction would show up on your Bank Statement on the card ending with <%= @lead.card_number.last(4)%> with the name of "<%= @lead.descriptor.capitalize %>"
+</p>
+
+<h3>Bill Square</h3>
+<p>CONFIDENTIALITY NOTICE: This e-mail message and any attachments are only for the use of the intended recipient and may contain information that is privileged, confidential or exempt from disclosure under applicable law. If you are not the intended recipient, any disclosure, distribution or other use of this e-mail message or attachments is prohibited.
+If you have received this e-mail message in error, please delete and notify the sender immediately.
 </p>
