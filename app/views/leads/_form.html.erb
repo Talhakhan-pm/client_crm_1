@@ -259,17 +259,17 @@
         
             <div>
               <label for="card-number" class="sr-only">Card number</label>
-              <%= f.password_field :card_number, value: @lead.card_number, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-b-2", placeholder: "Card Number" %>
+              <%= f.password_field :card_number, value: @lead.card_number, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-b-2", placeholder: "Card Number", maxlength: 16 %>
             </div>
 
             <div class="flex -space-x-px">
               <div class="w-1/2 min-w-0 flex-1">
                 <label for="card-expiration-date" class="sr-only">Expiration date</label>
-              <%= f.number_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MM/YY" %>
+              <%= f.number_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MMYY", maxlength: 4 %>
               </div>
               <div class="min-w-0 flex-1">
                 <label for="card-cvc" class="sr-only">CVC</label>
-              <%= f.number_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV" %>
+              <%= f.number_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV", maxlength: 4 %>
               </div>
             </div>
             </div>
@@ -286,7 +286,7 @@
           <div class="sm:col-span-2">
             <label for="email" class="block text-sm font-medium text-gray-700">Pin Code</label>
             <div class="mt-1">
-               <%= f.number_field :pin_code, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "4 Digit Pin Code" %>
+               <%= f.number_field :pin_code, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "4 Digit Pin Code", maxlength: 4 %>
             </div>
           </div>
 
