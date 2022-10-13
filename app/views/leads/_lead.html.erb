@@ -154,7 +154,7 @@
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.pin_code %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= "$#{lead.total_bill}" if lead.total_bill %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.biller_comment %></td>
-        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= distance_of_time_in_words_to_now(lead.bill_check_date) if lead.bill_check_date %></td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= distance_of_time_in_words_to_now(lead.bill_check_date) if lead.bill_check_date %> ago</td>
                                                                                                             <% if lead.bill_check_date.present? %>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= current_user.email %></td>
                                                                                                                 <% else %>

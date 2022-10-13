@@ -37,6 +37,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
+
+# validates :email,
+#          format: {
+#           message: 'domain must be knotssolutions.com',
+#           with: /\A[\w+-.]+@knotssolutions.com\z/i
+#           }
          
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
