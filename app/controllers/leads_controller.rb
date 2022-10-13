@@ -34,7 +34,7 @@ class LeadsController < ApplicationController
   def update
     @lead = Lead.find(params[:id])
     authorize @lead
-    if @lead.update!(lead_params)
+    if @lead.update!(lead_params) || @lead.bill_check_date_changed?
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
     else
