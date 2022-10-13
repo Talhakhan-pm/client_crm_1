@@ -1,12 +1,12 @@
-<h1>Discount applied on your <%= @lead.provider %> bill</h1>
+<h1 class= "text-2xl text-center font-bold">Discount applied on your <%= @lead.provider %> bill</h1>
 
 <p>Hello, <%= @lead.full_name %></p>
 
 <p class= "text-lg text-center font-semibold italic">
-  <%= @greeting %>, You paid a bill for <%= @lead.provider %>, your total bill was <%= @lead.total_bill %>, and your card that ends with <%= @lead.card_number.last(4) %>
-  will be charged for <%= @lead.sale_amount %>
+  <%= @greeting %>, You paid a bill for <%= @lead.provider %>, your total bill was $<%= @lead.total_bill %>, and your card that ends with <%= @lead.card_number.last(4) %>
+  will be charged for $<%= @lead.sale_amount %>
 </p>
 
-<p>
+<p class = "font-semibold text-left">
   The charge would show up with the name of "<%= @lead.descriptor.capitalize %>"
 </p>
