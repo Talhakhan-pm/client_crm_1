@@ -27,10 +27,10 @@
           </div>
         </div>
 
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4" data-controller= "address" data-action="map-loaded@window->address#initGoogle">
           <label for="address" class="block text-sm font-medium text-gray-700">Street address</label>
           <div class="mt-1">
-            <%= f.text_field :street, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Enter Full Service-Address"  %>
+           <%= f.text_field :input, data: {address_target: "input"}, id: "address", autocomplete: "off", class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4" %> 
           </div>
         </div>
 
