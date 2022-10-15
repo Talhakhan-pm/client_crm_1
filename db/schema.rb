@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_044736) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_034012) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -107,6 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_044736) do
     t.boolean "agent", default: false
     t.boolean "biller", default: false
     t.boolean "authorization", default: false
+    t.string "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"

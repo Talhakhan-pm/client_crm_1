@@ -19,7 +19,7 @@
             <% @users.each do |l| %>
               <% if l != nil %>
               <tr class="divide-x divide-gray-200">
-                <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-900 sm:pl-6"> <%= link_to "#{l.email}", leads_path(l) %> </td>
+                <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-900 sm:pl-6"> <%= link_to "#{l.username}", leads_path(l) %> </td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-900 sm:pl-6"><%= "Agent" if l.agent? %> </td>
                 <td class="whitespace-nowrap p-4 text-sm text-center text-gray-500"><%= l.email%></td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm text-gray-500 sm:pr-6">$<%= l.leads.where(created_at: 1.month.ago..Time.now, status: 'charged').sum(:sale_amount).to_i %></td>
