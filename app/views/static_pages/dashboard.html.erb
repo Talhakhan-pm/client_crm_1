@@ -1,0 +1,9 @@
+<% if current_user.agent? %>
+  <%= render 'static_pages/agent_dashboard' %>
+  <% elsif current_user.biller %>
+  <%= render 'biller_dashboard' %>
+  <% elsif current_user.admin? %>
+  <%= render 'admin_dashboard' %>
+<% end %> 
+
+
