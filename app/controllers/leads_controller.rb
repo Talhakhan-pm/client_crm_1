@@ -3,6 +3,7 @@ class LeadsController < ApplicationController
   def index
     @leads = policy_scope(Lead).where("card_number LIKE ?", "%#{params[:filter]}%").all
     authorize @leads
+    @count = 0
   end
 
   def show
