@@ -27,7 +27,7 @@ class StaticPagesController < ApplicationController
     @average_sale_per_transcation_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'charged').average(:sale_amount)
     @declined_sales_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'decline').sum(:sale_amount).to_f
     @declined_sales_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'decline').count
-    @trasactions_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'charged').count
+    @trasactions_today = current_user.leads.where(created_at: 1.day.ago..Time.now).count
     @chargebacks_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'chargeback').count
     @refunds_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'refund').count
     @pending_sales_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'pending').sum(:sale_amount).to_f
@@ -52,7 +52,7 @@ class StaticPagesController < ApplicationController
     @charged_sales_count = current_user.leads.where(created_at: 1.month.ago..Time.now, status: 'charged').count.to_f
     @charged_sales_last_count = current_user.leads.where(created_at: 2.months.ago..1.month.ago, status: 'charged').count.to_f
     @net_sales = @charged_sales_this_month - @chargebacks_this_month_total - @total_refunds_this_month
-    @average_sale_per_transcation = current_user.leads.average(:sale_amount).round(2)
+    @average_sale_per_transcation = current_user.leads.where(created_at: 1.month.ago..Time.now, status: 'charged').average(:sale_amount)
     @percentage_chargebacks_in_this_month = (@chargebacks_this_month/@charged_sales_count) * 100 
   end
 end
