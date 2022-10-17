@@ -4,6 +4,8 @@ class LeadPolicy < ApplicationPolicy
     def resolve
       if user.agent?
         scope.where(user_id: @user.try(:id)).order(created_at: :desc)
+      elsif user.biller?
+        scope.where(status: 'charged').order(created_at: :desc)
       else
         scope.order(created_at: :desc)
       end
@@ -23,7 +25,7 @@ class LeadPolicy < ApplicationPolicy
   end
 
   def create?
-    user.agent
+    user.agent || user.admin
   end
 
   def update?
