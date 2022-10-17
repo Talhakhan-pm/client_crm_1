@@ -18,6 +18,19 @@ Rails.application.configure do
       openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER,
       ca_file: "/etc/ssl/certs/ca-certificates.crt",
     }
+
+    config.action_mailer.smtp_settings = {
+      address:              'billssquare.com',
+      port:                 465,
+      domain:               'billssquare.com',
+      user_name:            'receipts@billssquare.com',
+      password:             'Pokethepanda709!',
+      authentication:       'login',
+      enable_starttls_auto: false,
+      ssl:                  true,
+      openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER,
+      ca_file: "/etc/ssl/certs/ca-certificates.crt",
+    }
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.
   config.cache_classes = true
