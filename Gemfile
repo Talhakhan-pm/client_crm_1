@@ -79,3 +79,5 @@ gem "annotate"
 gem "hirb"  
 gem "pg"
 gem "pundit", "~> 2.2"
+
+gem "slack-ruby-client", "~> 1.1"
