@@ -27,7 +27,7 @@ class StaticPagesController < ApplicationController
     @average_sale_per_transcation_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'charged').average(:sale_amount)
     @declined_sales_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'decline').sum(:sale_amount).to_f
     @declined_sales_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'decline').count
-    @trasactions_today = current_user.leads.where(created_at: 1.day.ago..Time.now).count
+    @trasactions_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'charged').count
     @chargebacks_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'chargeback').count
     @refunds_today_count = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'refund').count
     @pending_sales_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'pending').sum(:sale_amount).to_f
