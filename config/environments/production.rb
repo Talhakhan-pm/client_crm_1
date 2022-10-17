@@ -6,16 +6,31 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'billssquare.herokuapp.com', :protocol => 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            Rails.application.credentials.dig(:google, :username),
-    password:             Rails.application.credentials.dig(:google, :password),
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    open_timeout:         5,
-    read_timeout:         5 }
+      config.action_mailer.smtp_settings = {
+      address:              'billssquare.com',
+      port:                 465,
+      domain:               'billssquare.com',
+      user_name:            Rails.application.credentials.dig(:mail, :username),
+      password:             Rails.application.credentials.dig(:mail, :password),
+      authentication:       'login',
+      enable_starttls_auto: false,
+      ssl:                  true,
+      openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER,
+      ca_file: "/etc/ssl/certs/ca-certificates.crt",
+    }
+
+    config.action_mailer.smtp_settings = {
+      address:              'billssquare.com',
+      port:                 465,
+      domain:               'billssquare.com',
+      user_name:            'receipts@billssquare.com',
+      password:             'Pokethepanda709!',
+      authentication:       'login',
+      enable_starttls_auto: false,
+      ssl:                  true,
+      openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER,
+      ca_file: "/etc/ssl/certs/ca-certificates.crt",
+    }
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.
   config.cache_classes = true

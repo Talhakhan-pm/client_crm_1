@@ -65,15 +65,17 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'khan@knotssolutions.com',
-    password:             'phsvoftnhwpbursa',
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    open_timeout:         5,
-    read_timeout:         5 }
+    address:              'billssquare.com',
+    port:                 465,
+    domain:               'billssquare.com',
+    user_name:            'receipts@billssquare.com',
+    password:             'Pokethepanda709!',
+    authentication:       'login',
+    enable_starttls_auto: false,
+    ssl:                  true,
+    openssl_verify_mode: OpenSSL::SSL::VERIFY_PEER,
+    ca_file: "/etc/ssl/certs/ca-certificates.crt",
+  }
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
