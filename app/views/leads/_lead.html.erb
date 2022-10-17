@@ -2,7 +2,7 @@
 
   <% if current_user.agent %>
       <tr class="hover:bg-gray-100">
-        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.id}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.created_at.to_s(:short)}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.full_name %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all sm:pl-6 lg:pl-8"><%= lead.input.to_s %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.phone %></td>
@@ -41,9 +41,10 @@
   <% end %>  
   <% if current_user.authorization %>
     <tr class="hover:bg-gray-100">
-      <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.id}", edit_lead_path(lead),data: { turbo: "false" }, class: "text-gray-600 hover:text-indigo-900" %></td>
+      <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.created_at.to_s(:short)}", edit_lead_path(lead),data: { turbo: "false" }, class: "text-gray-600 hover:text-indigo-900" %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.full_name %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all sm:pl-6 lg:pl-8"><%= lead.input %></td>
+      <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.email %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.card_number %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.exp %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.cvv %></td>
@@ -79,7 +80,7 @@
     
   
     <tr class="hover:bg-gray-100">
-      <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.id}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
+      <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.created_at.to_s(:short)}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all "><%= lead.full_name %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all sm:pl-6 lg:pl-8"><%= lead.input %></td>
       <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.phone %></td>
@@ -145,7 +146,7 @@
 
     <% if current_user.biller %>
       <tr class="hover:bg-gray-100">
-        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.id}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to "#{lead.created_at.to_s(:short)}", edit_lead_path(lead), class: "text-gray-600 hover:text-indigo-900" %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.full_name %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all sm:pl-6 lg:pl-8"><%= lead.input %></td>
         <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 select-all"><%= lead.phone %></td>

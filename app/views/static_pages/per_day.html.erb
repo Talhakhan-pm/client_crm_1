@@ -1,0 +1,62 @@
+<%= turbo_frame_tag "per-day" do %>
+<div class="flex h-screen items-center">
+  <div class="mx-auto container">
+    <%= link_to "Today", per_day_sales_path, class: "text-lg font-light leading-10 tracking-4 text-gray-900 text-center my-4 rounded bg-indigo-200 hover:bg-indigo-300 px-3 py-2", target: "_top" %>
+    <%= link_to "30 Days", stats_path, class: "text-lg font-light leading-6 text-gray-900 text-center my-4 rounded bg-indigo-200 hover:bg-indigo-300 px-3 py-2", target: "_top" %>
+
+  <div class = "my-4 px-4 py-8 border-2 rounded-2xl">
+    <h3 class="text-2xl font-medium leading-6 text-gray-900 text-center">Today</h3>
+    <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Sales</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @charged_sales_today.to_f %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Chargebacks</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @chargebacks_today %></dd>
+      </div>
+
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Refunds</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @refunds_today %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Net Sales</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @net_sale_today.round(3) if @net_sale_today%></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Average Sale Amount</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @average_sale_per_transcation_today.to_f %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Declined Sales Volume($)</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @declined_sales_today.to_f %></dd>
+      </div>
+
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total number of Transactions</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @trasactions_today %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Number of Chargebacks</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @chargebacks_today_count.to_i %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Number of Refunds</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @refunds_today_count.to_i %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Pending Sales</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @pending_sales_count_today.to_i %></dd>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Declined Sales</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @declined_sales_today_count.to_i %></dd>
+      </div>
+    </dl>
+  </div>
+
+  </div>
+</div>
+
+<% end %>
