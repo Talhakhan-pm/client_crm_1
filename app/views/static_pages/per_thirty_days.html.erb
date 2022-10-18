@@ -1,8 +1,9 @@
-  <%= turbo_frame_tag "30days" do %>
+<%= turbo_frame_tag "30days" do %>
+
     <span class="isolate inline-flex rounded-md shadow-sm">
-    <%= link_to "Today", per_day_sales_path, class: "relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
-    <%= link_to "7 Days", stats_path, class: "relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
-    <%= link_to "30 Days", stats_path , class: "relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
+      <%= link_to "Today", per_day_sales_path, class: "relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
+      <%= link_to "7 Days", stats_path, class: "relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
+      <%= link_to "30 Days", stats_path , class: "relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
     </span>
   <div class= "my-4 px-4 py-8 border-2 rounded-2xl">
     <h3 class="text-2xl font-medium leading-6 text-gray-900 text-center">Last 30 days</h3>
