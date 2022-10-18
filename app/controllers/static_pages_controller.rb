@@ -34,6 +34,21 @@ class StaticPagesController < ApplicationController
     @pending_sales_count_today = current_user.leads.where(created_at: 1.day.ago..Time.now, status: 'pending').count
   end
 
+  def per_seven_days
+    @charged_sales_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'charged').sum(:sale_amount).to_f
+    @chargebacks_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'chargeback').sum(:sale_amount).to_f
+    @refunds_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'refund').sum(:sale_amount).to_f
+    @net_sale_seven_days = @charged_sales_seven_days - @chargebacks_seven_days - @refunds_seven_days
+    @average_sale_per_transcation_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'charged').average(:sale_amount)
+    @declined_sales_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'decline').sum(:sale_amount).to_f
+    @declined_sales_seven_days_count = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'decline').count
+    @trasactions_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now).count
+    @chargebacks_seven_days_count = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'chargeback').count
+    @refunds_seven_days_count = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'refund').count
+    @pending_sales_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'pending').sum(:sale_amount).to_f
+    @pending_sales_count_seven_days = current_user.leads.where(created_at: 7.days.ago..Time.now, status: 'pending').count
+  end
+
   def per_thirty_days
     @charged_sales_last_month = current_user.leads.where(created_at: 2.months.ago..1.month.ago, status: 'charged').sum(:sale_amount).to_f
     @charged_sales_this_month = current_user.leads.where(created_at: 1.months.ago..Time.now, status: 'charged').sum(:sale_amount).to_f

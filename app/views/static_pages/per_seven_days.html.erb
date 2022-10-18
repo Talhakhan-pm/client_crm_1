@@ -19,53 +19,53 @@
     <%= link_to "30 Days", stats_path , class: "relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500", target: "_top" %>
     </span>
   <div class = "my-4 px-4 py-8 border-2 rounded-2xl">
-    <h3 class="text-2xl font-medium leading-6 text-gray-900 text-center">Today</h3>
+    <h3 class="text-2xl font-medium leading-6 text-gray-900 text-center">Weekly</h3>
     <dl class="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Sales</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @charged_sales_today.to_f %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @charged_sales_seven_days.to_f %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Chargebacks</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @chargebacks_today %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @chargebacks_seven_days %></dd>
       </div>
 
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Refunds</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @refunds_today %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @refunds_seven_days %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Net Sales</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @net_sale_today.round(3) if @net_sale_today%></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @net_sale_seven_days.round(3) if @net_sale_seven_days%></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Average Sale Amount</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @average_sale_per_transcation_today.to_f %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @average_sale_per_transcation_seven_days.to_f %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Declined Sales Volume($)</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @declined_sales_today.to_f %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">$<%= @declined_sales_seven_days.to_f %></dd>
       </div>
 
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total number of Transactions</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @trasactions_today %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @trasactions_seven_days %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Number of Chargebacks</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @chargebacks_today_count.to_i %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @chargebacks_seven_days_count.to_i %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Number of Refunds</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @refunds_today_count.to_i %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @refunds_seven_days_count.to_i %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Pending Sales</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @pending_sales_count_today.to_i %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @pending_sales_count_seven_days.to_i %></dd>
       </div>
       <div class="overflow-hidden rounded-xl bg-white px-4 py-5 shadow-xl sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Declined Sales</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @declined_sales_today_count.to_i %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @declined_sales_seven_days_count.to_i %></dd>
       </div>
     </dl>
   </div>
