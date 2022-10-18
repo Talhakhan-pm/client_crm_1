@@ -10,7 +10,7 @@
 #  zip             :string
 #  provider        :integer          default("Spectrum")
 #  account_number  :string
-#  total_bill      :string
+#  total_bill      :decimal(, )
 #  bill_month      :integer
 #  status          :integer          default("pending")
 #  name_on_card    :string
@@ -23,12 +23,14 @@
 #  updated_at      :datetime         not null
 #  user_id         :integer
 #  phone           :string
-#  sale_amount     :string
+#  sale_amount     :decimal(, )
 #  comments        :text
 #  ssn             :string
 #  pin_code        :string
-#  bill_status     :integer          default(0)
-#  bill_check_date :date
+#  bill_status     :integer          default("Pending")
+#  bill_check_date :datetime
+#  biller_comment  :string
+#  input           :string
 #
 
 one:

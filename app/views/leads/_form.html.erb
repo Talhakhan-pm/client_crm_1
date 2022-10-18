@@ -163,9 +163,11 @@
   </form>
 
 <% if current_user.agent %>
+<div class="mx-auto container mt-8">
+  <%= render 'layouts/errors' %>
+  </div>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with model: @lead do |f| %>
-  <%= render 'layouts/errors' %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -265,11 +267,11 @@
             <div class="flex -space-x-px">
               <div class="w-1/2 min-w-0 flex-1">
                 <label for="card-expiration-date" class="sr-only">Expiration date</label>
-              <%= f.number_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MMYY", maxlength: 4 %>
+              <%= f.text_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MM/YY", maxlength: 5 %>
               </div>
               <div class="min-w-0 flex-1">
                 <label for="card-cvc" class="sr-only">CVC</label>
-              <%= f.number_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV", maxlength: 4 %>
+              <%= f.text_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV", maxlength: 4 %>
               </div>
             </div>
             </div>
@@ -279,7 +281,7 @@
           <div class="sm:col-span-2">
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
             <div class="mt-1">
-               <%= f.text_field :email, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Email" %>
+               <%= f.email_field :email, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "Email" %>
             </div>
           </div>
 
@@ -322,9 +324,9 @@
   </form>
 
     <% if current_user.authorization %>
+  <%= render 'layouts/errors' %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with(model: @lead) do |f| %>
-  <%= render 'layouts/errors' %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -356,8 +358,8 @@
   </form>
 
       <% if current_user.biller %>
-<div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
  <%= form_with(model: @lead) do |f| %>
+<div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>

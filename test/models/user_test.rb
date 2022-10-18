@@ -29,6 +29,7 @@
 #  agent                  :boolean          default(FALSE)
 #  biller                 :boolean          default(FALSE)
 #  authorization          :boolean          default(FALSE)
+#  username               :string
 #
 require "test_helper"
 
