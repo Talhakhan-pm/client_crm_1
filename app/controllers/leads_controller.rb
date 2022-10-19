@@ -44,7 +44,6 @@ class LeadsController < ApplicationController
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
     else
-      flash.now[:alert]= "Please contact your Manager"
       render action: :edit, status: :unprocessable_entity
     end
   end
