@@ -103,11 +103,11 @@
             <div class="flex -space-x-px">
               <div class="w-1/2 min-w-0 flex-1">
                 <label for="card-expiration-date" class="sr-only">Expiration date</label>
-              <%= f.number_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MM/YY" %>
+              <%= f.text_field :exp, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4 border-r-2", placeholder: "MM/YY" %>
               </div>
               <div class="min-w-0 flex-1">
                 <label for="card-cvc" class="sr-only">CVC</label>
-              <%= f.number_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV" %>
+              <%= f.text_field :cvv, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-3 px-4", placeholder: "CVV" %>
               </div>
             </div>
             </div>
