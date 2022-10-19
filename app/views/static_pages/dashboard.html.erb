@@ -4,6 +4,8 @@
   <%= render 'biller_dashboard' %>
   <% elsif current_user.admin? %>
   <%= render 'admin_dashboard' %>
+  <%= elsif current_user.authorization? %>
+  <%= render 'authorization' %>
 <% end %> 
 
 

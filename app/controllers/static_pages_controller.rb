@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
       elsif current_user.biller
         @billers = User.where(biller: true)
         render '_biller_dashboard'
+      elsif current_user.authorization
+        render '_authorization'
     end
 
   
