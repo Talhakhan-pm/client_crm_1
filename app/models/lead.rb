@@ -38,7 +38,7 @@ class Lead < ApplicationRecord
   validates :card_number, format: { with: /\A^[3456][0-9]{14,15}\Z/, message: "needs to start with 3, 4, 5 or 6" }
   validates :exp, format: { with: /(?:0[1-9]|1[0-2])\/[0-9]{2}/, message: "needs to be put in as MM / YY"}
   validates :cvv, numericality: {integer: true}
-  validates :sale_amount, numericality:  {greater_than: 49, less_than_or_equal_to: 999, message: "should be between $49 and $999"}
+  validates :sale_amount, presence: true, numericality:  {greater_than: 49, less_than_or_equal_to: 999, message: "should be between $49 and $999"}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 105 }, format: { with: VALID_EMAIL_REGEX }
   validates :pin_code, length:{ maximum: 4 }
