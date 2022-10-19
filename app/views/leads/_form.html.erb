@@ -3,8 +3,9 @@
 
 <%# Form form admins %>
   <% if current_user.admin %>
+  <%= render 'layouts/errors' %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
- <%= form_with(model: @lead, local: true) do |f| %>
+ <%= form_with(model: @lead) do |f| %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -152,7 +153,7 @@
 
     <div class="pt-5">
       <div class="flex justify-center">
-      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
+      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
       <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
         <% end %>
             <% end %>
@@ -167,7 +168,7 @@
   <%= render 'layouts/errors' %>
   </div>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
- <%= form_with model: @lead do |f| %>
+ <%= form_with(model: @lead) do |f| %>
     <form class="space-y-8 divide-y divide-gray-200">
       <div class="space-y-8 divide-y divide-gray-200">
         <div>
@@ -347,7 +348,7 @@
 
     <div class="pt-5">
       <div class="flex justify-center">
-      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
+      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
       <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
         <% end %>
             <% end %>
@@ -358,6 +359,7 @@
   </form>
 
       <% if current_user.biller %>
+      <%= render 'layouts/errors' %>
  <%= form_with(model: @lead) do |f| %>
 <div class="lg:w-1/2 mx-auto mt-20 bg-gray-200 p-8 rounded-xl sm:w-4/5 ">
     <form class="space-y-8 divide-y divide-gray-200">
@@ -392,7 +394,7 @@
 
     <div class="pt-5">
       <div class="flex justify-center">
-      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
+      <%= f.submit "Submit", class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"%>
       <%= link_to "Cancel", leads_path, class: "ml-4 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
         <% end %>
             <% end %>

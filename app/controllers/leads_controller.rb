@@ -3,7 +3,6 @@ class LeadsController < ApplicationController
   def index
     @leads = policy_scope(Lead).where("card_number LIKE ?", "%#{params[:filter]}%").all
     authorize @leads
-    @count = 0
   end
 
   def show
@@ -30,18 +29,23 @@ class LeadsController < ApplicationController
 
   def edit
     @lead = Lead.find(params[:id])
-    authorize @lead
+    if current_user.admin? || current_user.biller? || current_user.authorization?
+      @lead
+    elsif @lead.user_id != current_user.id
+      flash[:alert] = "You are not authorized to do this"
+      redirect_to leads_path
+    end
   end
 
   def update
     @lead = Lead.find(params[:id])
     authorize @lead
-    if @lead.update!(lead_params) || @lead.bill_check_date_changed?
+    if @lead.update(lead_params) || @lead.bill_check_date_changed?
       flash[:notice]= "Lead has been updated"
       redirect_to leads_path
     else
       flash.now[:alert]= "Please contact your Manager"
-      render :edit, status: :unprocessable_entity
+      render action: :edit, status: :unprocessable_entity
     end
   end
 

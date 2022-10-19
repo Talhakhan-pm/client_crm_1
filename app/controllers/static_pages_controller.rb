@@ -16,7 +16,6 @@ class StaticPagesController < ApplicationController
   end
 
   def stats
-
   end
 
   def per_day
