@@ -6,6 +6,9 @@
   <%= render 'admin_dashboard' %>
   <%= elsif current_user.authorization? %>
   <%= render 'authorization' %>
+  <% else %>
+  <%= flash.now[:alert] = "Please contact your administrator" %>
+  <%= redirect_to leads_path %>
 <% end %> 
 
 

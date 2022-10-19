@@ -13,6 +13,7 @@
                 <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">Chargebacks ($) </th>
                 <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">Pending Sales</th>
                 <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">Declind Sales</th>
+                <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">Refund Sales ($)</th>
                 <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">No of Chargebacks </th>
                 <th scope="col" class="px-4 py-3.5 text-center text-sm font-semibold text-gray-900">Net Sales </th>
               </tr>
@@ -30,6 +31,7 @@
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center font-medium text-sm text-gray-500 sm:pr-6">$<%= l.leads.where(status: 'chargeback', created_at: 1.month.ago..Time.now).sum(:sale_amount) %></td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-500 sm:pr-6">$<%= l.leads.where(status: 'pending', created_at: 1.month.ago..Time.now).sum(:sale_amount) %></td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-500 sm:pr-6">$<%= l.leads.where(status: 'decline', created_at: 1.month.ago..Time.now).sum(:sale_amount) %></td>
+                <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-500 sm:pr-6">$<%= l.leads.where(status: 'refund', created_at: 1.month.ago..Time.now).sum(:sale_amount) %></td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-500 sm:pr-6"><%= l.leads.where(status: 'chargeback', created_at: 1.month.ago..Time.now).count %></td>
                 <td class="whitespace-nowrap py-4 pl-4 pr-4 text-center text-sm font-medium text-gray-500 sm:pr-6">$<%= (l.leads.where(created_at: 1.month.ago..Time.now, status: 'charged').sum(:sale_amount)) - (l.leads.where(status: 'refund', created_at: 1.month.ago..Time.now).sum(:sale_amount)) - (l.leads.where(status: 'chargeback', created_at: 1.month.ago..Time.now).sum(:sale_amount))%></td>
               </tr>
