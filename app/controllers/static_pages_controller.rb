@@ -14,7 +14,8 @@ class StaticPagesController < ApplicationController
         @users = User.where(authorization: true)
         render '_authorization'
       else 
-        flash.now[:alert] = "You are not authori"
+        flash.now[:alert] = "You are not authorized to do this"
+        redirect_to new_user_session_path
     end
 
   
