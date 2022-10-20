@@ -1,13 +1,8 @@
 class LeadsController < ApplicationController
 
   def index
-    if current_user.admin?
-    @leads = policy_scope(Lead).where("user_id LIKE ?", "%#{params[:filter]}%").all
-    authorize @leads
-    else
     @leads = policy_scope(Lead).where("card_number LIKE ?", "%#{params[:filter]}%").all
     authorize @leads
-    end
   end
 
   def show
