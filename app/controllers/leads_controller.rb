@@ -1,9 +1,6 @@
 class LeadsController < ApplicationController
 
   def index
-    if current_user.admin?
-      @leads = Lead.where("user_id LIKE ?", "%#{params[:filter]}%").order(created_at: :desc)
-    end
     @leads = policy_scope(Lead).where("card_number LIKE ?", "%#{params[:filter]}%").all
     authorize @leads
   end
